@@ -21,9 +21,8 @@ const reducer = (state = initialState, action) => {
         counter: state.counter - action.value,
       };
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 export default reducer;
