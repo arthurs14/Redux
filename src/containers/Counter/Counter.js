@@ -29,17 +29,20 @@ class Counter extends Component {
     }
 
     render() {
+        const { ctr, storedResults, increment, decrement, add, subtract, onStoreResult, onDeleteResult } = this.props;
         return (
             <div>
-                <CounterOutput value={this.props.ctr} />
-                <CounterControl label="Increment" clicked={this.props.increment} />
-                <CounterControl label="Decrement" clicked={this.props.decrement} />
-                <CounterControl label="Add 5" clicked={this.props.add} />
-                <CounterControl label="Subtract 5" clicked={this.props.subtract} />
+                <CounterOutput value={ctr} />
+                <CounterControl label="Increment" clicked={increment} />
+                <CounterControl label="Decrement" clicked={decrement} />
+                <CounterControl label="Add 5" clicked={add} />
+                <CounterControl label="Subtract 5" clicked={subtract} />
                 <hr />
-                <button onClick={this.props.onStoreResult}>Store Result</button>
+                <button onClick={onStoreResult}>Store Result</button>
                 <ul>
-                    <li onClick={this.props.onDeleteResult}></li>
+                    {storedResults.map(result => (
+                        <li key={result.id} onClick={onDeleteResult}>{result.value}</li>
+                    ))}
                 </ul>
             </div>
         );
@@ -48,7 +51,8 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counter
+        ctr: state.counter,
+        storedResults: state.results,
     };
 }
 
