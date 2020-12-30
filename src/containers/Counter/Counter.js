@@ -40,9 +40,11 @@ class Counter extends Component {
                 <hr />
                 <button onClick={onStoreResult}>Store Result</button>
                 <ul>
-                    {storedResults.map(result => (
-                        <li key={result.id} onClick={onDeleteResult}>{result.value}</li>
-                    ))}
+                    {
+                        storedResults.map(result => (
+                            <li key={result.id} onClick={onDeleteResult}>{result.value}</li>
+                        ))
+                    }
                 </ul>
             </div>
         );
