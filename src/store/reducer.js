@@ -33,10 +33,12 @@ const reducer = (state = initialState, action) => {
     case 'DELETE_RESULT':
       // let newArr = [...state.results];
       // newArr.splice(id, 1);
+      let updatedArr = state.results.filter(result => result.id !== action.id);
       return {
         ...state,
         //results: newArr,
-      }
+        results: updatedArr,
+      };
     default:
       return state;
   }
