@@ -10,29 +10,34 @@ export const increment = () => {
     type: INCREMENT,
   };
 };
+
 export const decrement = () => {
   return {
     type: DECREMENT,
   };
 };
+
 export const add = (count) => {
   return {
     type: ADD,
     value: count,
   };
 };
+
 export const subtract = (count) => {
   return {
     type: SUBTRACT,
     value: count,
   };
 };
+
 export const storeResult = (result) => {
   return {
     type: STORE_RESULT,
     result: result,
   };
 };
+
 export const deleteResult = (id) => {
   return {
     type: DELETE_RESULT,
